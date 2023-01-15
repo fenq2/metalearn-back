@@ -14,7 +14,10 @@ dotenv.config();
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    MongooseModule.forRoot(process.env.DATABASE_URL),
+    MongooseModule.forRoot(
+      process.env.DATABASE_URL ||
+        'mongodb+srv://fenq2:90Llor1Ss@cluster0.wz3ez.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+    ),
     AuthModule,
     UsersModule,
     ManualsModule,
